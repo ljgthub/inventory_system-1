@@ -39,7 +39,7 @@
         </div>
         <div>
             <label for="type">Item Type: </label> <br>
-            <input type="text" name="type" id="type" required>
+            <input type="text" name="type" id="type">
         </div>
         <div>
             <label for="stock">Stocks:</label> <br>
@@ -67,6 +67,9 @@
             <button class="btn" id="upload_image_btn" type="button">Upload Image</button>
             <input type="file" name="image" id="image_input" style="display: none;">
         </div>
+
+        <input type="text" name="id" id="edit_id" style="display: none;">
+
         <div style="margin-top: 50px;">
             <label for="name">Item Name: </label> <br>
             <input type="text" name="name" id="edit_name" required>

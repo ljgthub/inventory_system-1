@@ -43,15 +43,17 @@ Array.from(edit_btn).forEach(element => {
         const item_cont = parentDiv.parentElement;
         const item_content = item_cont.querySelector(".item_content");
 
+        document.getElementById('edit_id').value = item_content.children[1].querySelector("span").innerHTML;
         document.getElementById('edit_name').value = item_content.children[2].querySelector("span").innerHTML;
         document.getElementById('edit_type').value = item_content.children[3].querySelector("span").innerHTML;
         document.getElementById('edit_stock').value = item_content.children[4].querySelector("span").innerHTML;
         document.getElementById('edit_price').value = item_content.children[5].querySelector("span").innerHTML;
 
         if (item_form.className == "item_form_show") {item_form.className = "item_form"}
-        else {item_form.className = "item_form_show"}
-        if (edit_form.className == "item_form_show") {edit_form.className = "item_form"}
-        else {edit_form.className = "item_form_show"}
+
+        edit_form.className = "item_form_show"
+
+        console.log(document.getElementById('edit_id').value)
     })
 })
 
