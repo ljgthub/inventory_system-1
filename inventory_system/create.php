@@ -1,15 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "motorparts_inventory";
-
-$conn = mysqli_connect($servername, $username, $password, $db);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require_once "db_connector.php";
 
 function handleFileUpload($file){
     $imagePath = "uploads/" . basename($file['name']);
@@ -30,7 +22,7 @@ if (isset($_POST['insert'])) {
     $stock = (int)$_POST['stock'];
     $price = (float)$_POST['price'];
 
-    if (isset($_FILES['image'])) {
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $imagePath = handleFileUpload($_FILES['image']);
         if ($imagePath === false) {
             echo "Error uploading image!";
@@ -46,7 +38,7 @@ if (isset($_POST['insert'])) {
     } else {
         echo "Data inserted successfully!";
     }
-    header("Location: inventory.php"); 
+    header("Location: index.php"); 
     exit;
 }
 }
